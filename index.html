@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Portofolio Saya</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;700;800&display=swap">
+<style>
+:root{--bg:#f4f6fb;--surface:#fff;--ink:#16202e;--mute:#5b6678;--line:#dde2ec;--accent:#3a4bd0;--accent-ink:#fff;--soft:#e4e8ff;--ok:#1d7a52;--warn:#b4531a;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0f141d;--surface:#18202c;--ink:#e8ecf4;--mute:#9aa5b8;--line:#2a3445;--accent:#8e9bff;--accent-ink:#0f141d;--soft:#252d52;--ok:#5fd09b;--warn:#f0a068}}
+:root[data-theme="dark"]{--bg:#0f141d;--surface:#18202c;--ink:#e8ecf4;--mute:#9aa5b8;--line:#2a3445;--accent:#8e9bff;--accent-ink:#0f141d;--soft:#252d52;--ok:#5fd09b;--warn:#f0a068}
+*{box-sizing:border-box}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 16px/1.6 "Plus Jakarta Sans",system-ui,sans-serif}
+header{position:sticky;top:env(safe-area-inset-top,0px);background:var(--bg);border-bottom:1px solid var(--line);z-index:5}
+nav{max-width:860px;margin:0 auto;display:flex;gap:4px;padding:10px 16px;align-items:center}
+nav b{font-weight:800;margin-right:auto}
+nav button{font:inherit;font-weight:500;background:none;border:0;color:var(--mute);padding:8px 14px;border-radius:8px;cursor:pointer}
+nav button[aria-selected="true"]{background:var(--soft);color:var(--accent);font-weight:700}
+button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+main{max-width:860px;margin:0 auto;padding:24px 16px 56px}
+section[hidden]{display:none}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:16px;overflow:hidden}
+.id{display:grid;grid-template-columns:220px 1fr}
+.photo{background:var(--soft);display:flex;flex-direction:column;align-items:center;justify-content:center;padding:24px;gap:12px}
+.photo img,.ph{width:160px;height:200px;object-fit:cover;border-radius:10px;border:3px solid var(--surface);background:var(--line)}
+.ph{display:grid;place-items:center;color:var(--mute);font-size:48px}
+.info{padding:28px}
+h1{font-size:clamp(26px,5vw,38px);line-height:1.15;margin:0 0 4px;font-weight:800}
+.role{color:var(--accent);font-weight:700;margin:0 0 20px}
+dl{display:grid;grid-template-columns:130px 1fr;gap:8px 12px;margin:0}
+dt{color:var(--mute);font-size:14px}dd{margin:0;font-weight:500;overflow-wrap:anywhere}
+.bio{margin:20px 0 0;color:var(--mute);max-width:62ch}
+.btn{font:inherit;font-weight:700;background:var(--accent);color:var(--accent-ink);border:0;padding:10px 18px;border-radius:10px;cursor:pointer}
+.btn.ghost{background:none;color:var(--accent);border:1px solid var(--line)}
+.row{display:flex;gap:8px;flex-wrap:wrap;margin-top:22px}
+h2{font-size:24px;margin:0 0 16px}
+.stats{display:flex;gap:12px;margin-bottom:16px;flex-wrap:wrap}
+.stats div{flex:1;min-width:110px;background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:12px 16px}
+.stats strong{display:block;font-size:24px}
+.stats span{color:var(--mute);font-size:14px}
+form.add{display:grid;grid-template-columns:2fr 1fr 1fr auto;gap:8px;margin-bottom:16px}
+input,select,textarea{font:inherit;color:var(--ink);background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:10px 12px;width:100%}
+.filters{display:flex;gap:6px;margin-bottom:12px}
+.filters button{font:inherit;background:none;border:1px solid var(--line);color:var(--mute);border-radius:99px;padding:5px 14px;cursor:pointer}
+.filters button[aria-pressed="true"]{background:var(--accent);color:var(--accent-ink);border-color:var(--accent)}
+ul{list-style:none;margin:0;padding:0;display:grid;gap:8px}
+li.task{display:flex;gap:12px;align-items:center;background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:12px 14px}
+li.task input{width:20px;height:20px;accent-color:var(--accent);flex:none}
+li.task .t{flex:1;min-width:0}
+li.task .t div:first-child{font-weight:700;overflow-wrap:anywhere}
+li.task.done .t div:first-child{text-decoration:line-through;color:var(--mute)}
+.meta{font-size:13px;color:var(--mute)}
+.late{color:var(--warn);font-weight:700}
+.del{background:none;border:0;color:var(--mute);cursor:pointer;font-size:20px;padding:4px 8px;border-radius:8px}
+.empty{padding:28px;text-align:center;color:var(--mute);border:1px dashed var(--line);border-radius:12px}
+dialog{border:1px solid var(--line);border-radius:16px;background:var(--surface);color:var(--ink);width:min(520px,calc(100% - 24px));padding:22px}
+dialog::backdrop{background:rgba(10,14,22,.55)}
+dialog label{display:block;font-size:14px;color:var(--mute);margin:10px 0 4px}
+@media(max-width:640px){.id{grid-template-columns:1fr}form.add{grid-template-columns:1fr 1fr}form.add input:first-child{grid-column:1/-1}dl{grid-template-columns:1fr;gap:0}dt{margin-top:10px}}
+</style>
+</head>
+<body>
+<header><nav role="tablist">
+<b>Portofolio</b>
+<button role="tab" id="tab-profil" aria-selected="true" data-t="profil">Profil</button>
+<button role="tab" id="tab-tugas" aria-selected="false" data-t="tugas">Tugas Saya</button>
+</nav></header>
+<main>
+<section id="profil">
+<div class="card id">
+<div class="photo"><div id="foto"></div></div>
+<div class="info">
+<h1 id="v-nama"></h1>
+<p class="role" id="v-peran"></p>
+<dl>
+<dt>Tanggal lahir</dt><dd id="v-lahir"></dd>
+<dt>Usia</dt><dd id="v-usia"></dd>
+<dt>NIK / NIM</dt><dd id="v-nim"></dd>
+<dt>Jenis kelamin</dt><dd id="v-jk"></dd>
+<dt>Alamat</dt><dd id="v-alamat"></dd>
+<dt>Email</dt><dd id="v-email"></dd>
+<dt>Telepon</dt><dd id="v-telp"></dd>
+</dl>
+<p class="bio" id="v-bio"></p>
+<div class="row"><button class="btn" id="edit">Ubah profil</button></div>
+</div></div>
+</section>
+
+<section id="tugas" hidden>
+<h2>Tugas Saya</h2>
+<div class="stats">
+<div><strong id="s-all">0</strong><span>Semua tugas</span></div>
+<div><strong id="s-todo">0</strong><span>Belum selesai</span></div>
+<div><strong id="s-done">0</strong><span>Selesai</span></div>
+</div>
+<form class="add" id="addForm">
+<input id="a-judul" placeholder="Judul tugas" aria-label="Judul tugas" required>
+<input id="a-mapel" placeholder="Mata pelajaran / kategori" aria-label="Kategori">
+<input id="a-tgl" type="date" aria-label="Tenggat">
+<button class="btn">Tambah tugas</button>
+</form>
+<div class="filters" role="group" aria-label="Filter">
+<button data-f="all" aria-pressed="true">Semua</button>
+<button data-f="todo" aria-pressed="false">Belum selesai</button>
+<button data-f="done" aria-pressed="false">Selesai</button>
+</div>
+<ul id="list"></ul>
+</section>
+</main>
+
+<dialog id="dlg">
+<form method="dialog" id="pf">
+<h2>Ubah profil</h2>
+<label for="f-foto">Foto profil</label><input id="f-foto" type="file" accept="image/*">
+<label for="f-nama">Nama lengkap</label><input id="f-nama">
+<label for="f-peran">Peran / jurusan</label><input id="f-peran">
+<label for="f-lahir">Tanggal lahir</label><input id="f-lahir" type="date">
+<label for="f-nim">NIK / NIM</label><input id="f-nim">
+<label for="f-jk">Jenis kelamin</label><select id="f-jk"><option>Laki-laki</option><option>Perempuan</option></select>
+<label for="f-alamat">Alamat</label><input id="f-alamat">
+<label for="f-email">Email</label><input id="f-email" type="email">
+<label for="f-telp">Telepon</label><input id="f-telp">
+<label for="f-bio">Tentang saya</label><textarea id="f-bio" rows="3"></textarea>
+<div class="row"><button class="btn" value="ok">Simpan profil</button><button class="btn ghost" value="cancel" formnovalidate>Batal</button></div>
+</form>
+</dialog>
+
+<script>
+const $=id=>document.getElementById(id);
+const DEF={foto:"",nama:"Nama Lengkap Anda",peran:"Pelajar / Mahasiswa",lahir:"2005-01-01",nim:"1234567890",jk:"Laki-laki",alamat:"Semarang, Jawa Tengah",email:"email@contoh.com",telp:"0812-0000-0000",bio:"Tulis perkenalan singkat tentang diri Anda di sini. Klik tombol Ubah profil untuk mengganti semua data ini."};
+let P={...DEF},T=[],filter="all";
+function load(){try{const p=localStorage.getItem("porto_p"),t=localStorage.getItem("porto_t");if(p)P={...DEF,...JSON.parse(p)};if(t)T=JSON.parse(t)}catch(e){}}
+function save(){try{localStorage.setItem("porto_p",JSON.stringify(P));localStorage.setItem("porto_t",JSON.stringify(T))}catch(e){}}
+const fmt=d=>d?new Date(d+"T00:00:00").toLocaleDateString("id-ID",{day:"numeric",month:"long",year:"numeric"}):"-";
+function usia(d){if(!d)return"-";const b=new Date(d),n=new Date();let a=n.getFullYear()-b.getFullYear();if(n<new Date(n.getFullYear(),b.getMonth(),b.getDate()))a--;return a+" tahun"}
+function renderP(){
+$("foto").innerHTML=P.foto?`<img src="${P.foto}" alt="Foto profil ${P.nama.replace(/"/g,"")}">`:`<div class="ph" aria-label="Belum ada foto">👤</div>`;
+$("v-nama").textContent=P.nama;$("v-peran").textContent=P.peran;$("v-lahir").textContent=fmt(P.lahir);$("v-usia").textContent=usia(P.lahir);
+$("v-nim").textContent=P.nim||"-";$("v-jk").textContent=P.jk;$("v-alamat").textContent=P.alamat||"-";$("v-email").textContent=P.email||"-";$("v-telp").textContent=P.telp||"-";$("v-bio").textContent=P.bio;
+document.title="Portofolio "+P.nama}
+function renderT(){
+const done=T.filter(t=>t.done).length;$("s-all").textContent=T.length;$("s-done").textContent=done;$("s-todo").textContent=T.length-done;
+const today=new Date().toISOString().slice(0,10);
+const items=T.filter(t=>filter==="all"||(filter==="done")===t.done);
+const l=$("list");l.innerHTML="";
+if(!items.length){l.innerHTML=`<div class="empty">${T.length?"Tidak ada tugas di filter ini.":"Belum ada tugas. Tambahkan tugas pertama Anda di atas."}</div>`;return}
+items.sort((a,b)=>(a.done-b.done)||(a.tgl||"9").localeCompare(b.tgl||"9")).forEach(t=>{
+const li=document.createElement("li");li.className="task"+(t.done?" done":"");
+const late=!t.done&&t.tgl&&t.tgl<today;
+li.innerHTML=`<input type="checkbox" ${t.done?"checked":""} aria-label="Tandai selesai"><div class="t"><div></div><div class="meta"></div></div><button class="del" aria-label="Hapus tugas">×</button>`;
+li.querySelector(".t div").textContent=t.judul;
+const m=li.querySelector(".meta");m.textContent=[t.mapel,t.tgl?"Tenggat "+fmt(t.tgl):""].filter(Boolean).join(" • ");
+if(late){const s=document.createElement("span");s.className="late";s.textContent=" Terlambat";m.append(s)}
+li.querySelector("input").onchange=()=>{t.done=!t.done;save();renderT()};
+li.querySelector(".del").onclick=()=>{T=T.filter(x=>x!==t);save();renderT()};
+l.append(li)})}
+document.querySelectorAll("nav [data-t]").forEach(b=>b.onclick=()=>{
+document.querySelectorAll("nav [data-t]").forEach(x=>x.setAttribute("aria-selected",x===b));
+$("profil").hidden=b.dataset.t!=="profil";$("tugas").hidden=b.dataset.t!=="tugas"});
+document.querySelectorAll("[data-f]").forEach(b=>b.onclick=()=>{filter=b.dataset.f;document.querySelectorAll("[data-f]").forEach(x=>x.setAttribute("aria-pressed",x===b));renderT()});
+$("addForm").onsubmit=e=>{e.preventDefault();T.push({judul:$("a-judul").value.trim(),mapel:$("a-mapel").value.trim(),tgl:$("a-tgl").value,done:false});e.target.reset();save();renderT()};
+const ids={nama:"f-nama",peran:"f-peran",lahir:"f-lahir",nim:"f-nim",jk:"f-jk",alamat:"f-alamat",email:"f-email",telp:"f-telp",bio:"f-bio"};
+let newFoto=null;
+$("edit").onclick=()=>{newFoto=null;$("f-foto").value="";for(const k in ids)$(ids[k]).value=P[k];$("dlg").showModal()};
+$("f-foto").onchange=e=>{const f=e.target.files[0];if(!f)return;const r=new FileReader();r.onload=()=>{const im=new Image();im.onload=()=>{const c=document.createElement("canvas"),w=320,h=400,s=Math.max(w/im.width,h/im.height);c.width=w;c.height=h;const x=c.getContext("2d");x.drawImage(im,(w-im.width*s)/2,(h-im.height*s)/2,im.width*s,im.height*s);newFoto=c.toDataURL("image/jpeg",.85)};im.src=r.result};r.readAsDataURL(f)};
+$("dlg").addEventListener("close",()=>{if($("dlg").returnValue!=="ok")return;for(const k in ids)P[k]=$(ids[k]).value.trim();if(newFoto)P.foto=newFoto;save();renderP()});
+load();renderP();renderT();
+</script>
+</body>
+</html>
